@@ -2,7 +2,7 @@
 
 <%= form_tag(heroines_path, :method => "get", id: "search-form") do %>
 <%= label_tag(:q, "Search by Superpower:") %><br/>
-<%= text_field_tag :search, params[:search], placeholder: "Search Heroines" %>
+<%= text_field_tag :search, params[:search], placeholder: "Enter Power Number" %>
 <%= submit_tag "Search" %>
 <% end %>
 

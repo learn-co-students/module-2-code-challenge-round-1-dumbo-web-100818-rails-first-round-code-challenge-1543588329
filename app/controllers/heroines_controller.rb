@@ -30,6 +30,18 @@ class HeroinesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @heroine.update
+      redirect_to @heroine
+    else
+      flash[:error] = @heroine.errors.full_messages
+      redirect_to edit_heroine_path(@heroine)
+    end
+  end
+
   private
 
   def find_heroine
