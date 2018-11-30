@@ -1,0 +1,17 @@
+
+<h1>Let's make a bitchin' heroine</h1>
+
+
+
+<%= form_for @heroine do |f| %>
+<% if @heroine.errors.any? %>
+    <% @heroine.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    <% end %>
+   Name: <%= f.text_field :name %> <br>
+   Super Name: <%= f.text_field :super_name %> <br>
+   Power: <%= f.collection_select :power_id, Power.all, :id, :name %>
+   <%= f.submit %>
+
+   <% end %>
