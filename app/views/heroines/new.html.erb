@@ -1,0 +1,23 @@
+<h1>Create New Heroine</h1>
+
+<ul>
+<% if @heroine.errors.any? %>
+  <% @heroine.errors.full_messages.each do |msg| %>
+  <li><%=msg%></li>
+  <% end %>
+<% end %>
+</ul>
+
+
+<br>
+<ul style="list-style: none;">
+<%= form_for @heroine do |f| %>
+<li><%= f.label :name %></li>
+<li><%= f.text_field :name %></li>
+<li><%= f.label :super_name %></li>
+<li><%= f.text_field :super_name %></li>
+<li>Super Power</li>
+<li><%= f.collection_select :power_id, @powers, :id, :name %></li>
+<li><p><%= f.submit %></p></li>
+<% end %>
+</ul>
