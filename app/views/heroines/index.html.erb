@@ -1,5 +1,14 @@
 <h2>All Heroines</h2>
 
+
+<%= form_for heroines_path, method: "get" do |f|%>
+  <%= f.label :q, "Search by Superpower" %>
+  <%= f.text_field :q %>
+  <%= f.submit "Search" %>
+<% end  %>
+
+
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>

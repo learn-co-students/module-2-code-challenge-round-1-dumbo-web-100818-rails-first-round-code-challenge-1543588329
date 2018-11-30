@@ -1,7 +1,22 @@
 class HeroinesController < ApplicationController
   def index
-    @heroines = Heroine.all
+
+    if params['/heroines'] != nil
+
+      @heroines = Heroine.all.select{|t|t.power.name == params['/heroines']['q']}
+
+      render :index
+    else
+      @heroines = Heroine.all
+      render :index
+    end
   end
+
+  # def search
+  #
+  #   @heroines = Heroine.all.select{|t|t.power == params[:q]}
+  #   redirect_to :search
+  # end
 
   def show
     @heroine = Heroine.find(params[:id])
