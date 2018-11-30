@@ -9,6 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <ol>
+
+      <li><%= link_to "Heroines Index", heroines_path %></li>
+      <li><%= link_to "Powers Index", powers_path %></li>
+      <hr>
+      <%= yield %>
+
+    </ol>
   </body>
 </html>
