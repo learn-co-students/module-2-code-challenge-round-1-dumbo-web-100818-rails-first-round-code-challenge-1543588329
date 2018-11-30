@@ -1,9 +1,17 @@
 <h2>All Heroines</h2>
 
+<%#= form_for @power do |f|%>
+  <%#= f.label :powers%>
+  <%#= f.collection_select(:power_id, @powers, :id, :name) %>
+  <%#= f.submit %>
+
+<%#end %>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.name, heroine %>
+      <%# heroine.super_name %>
     </li>
     <br>
   <% end %>
