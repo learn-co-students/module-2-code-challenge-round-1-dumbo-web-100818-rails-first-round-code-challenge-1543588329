@@ -4,6 +4,12 @@ class HeroinesController < ApplicationController
 
   def index
     @heroines = Heroine.all
+    @powers = Power.all
+    if params[:search]
+      @heroines = Heroine.search(params[:search]).order("created_at DESC")
+    else
+      @heroines = Heroine.all.order('created_at DESC')
+    end
   end
 
   def show
