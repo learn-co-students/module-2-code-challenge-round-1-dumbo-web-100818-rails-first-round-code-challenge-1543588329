@@ -18,4 +18,8 @@ class HeroinesController < ApplicationController
       render 'new'
     end
   end
+  def search
+    @power = Power.find(:all, :conditions => ["names like ?", params[:q]]).limit(1)
+    @heroines = Heroine.where("power_id = ?", @power.id)
+  end
 end
