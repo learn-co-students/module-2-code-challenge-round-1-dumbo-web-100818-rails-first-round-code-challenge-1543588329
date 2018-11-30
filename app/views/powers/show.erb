@@ -1,0 +1,11 @@
+<h1>Power show page</h1>
+<ul>
+<li> Name: <%= @power.name %>        </li>
+<li> Description: <%= @power.description %><br> </li>
+
+<h2>Heroines with this power:</h2>
+  <% @power.heroines.each do |h| %>
+<li>   <%= link_to h.name, h %>   </li>
+        <% end %>
+
+</ul>
