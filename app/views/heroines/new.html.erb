@@ -1,0 +1,18 @@
+<ul>
+
+
+<%  if flash[:error]%>
+<% flash[:error].each do |error| %>
+<li style='color:red;'><%= error %></li>
+<% end %>
+<% end %>
+</ul>
+<%= form_for @heroine do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :super_name %>
+<%= f.text_field :super_name %>
+<%= f.label :power_id %>
+<%= f.collection_select :power_id, @powers, :id, :name %>
+<%= f.submit %>
+<% end %>
