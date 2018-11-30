@@ -31,10 +31,11 @@ class HeroinesController < ApplicationController
   end
 
   def edit
+    @powers = Power.all
   end
 
   def update
-    if @heroine.update
+    if @heroine.update(heroine_params)
       redirect_to @heroine
     else
       flash[:error] = @heroine.errors.full_messages
